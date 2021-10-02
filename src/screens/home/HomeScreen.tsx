@@ -3,6 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import {Colors} from '../../../typings/colors';
 import {Icons} from '../../../typings/icons';
 import {Header, Spacer} from '../../components';
+import {CostsSummary, GasSummary} from '../../containers';
 import {hp} from '../../helpers/layout';
 
 const Home = () => {
@@ -19,15 +20,19 @@ const Home = () => {
         text="Gas"
       />
       <Spacer vertical />
+      <GasSummary />
+      <Spacer vertical />
       <Header
         icon={{
-          icon: Icons.MaterialCommunityIcons,
-          name: 'gas-station',
+          icon: Icons.Foundation,
+          name: 'dollar',
           color: Colors.BLUE_500,
           size: hp(2.3),
         }}
         text="Costs"
       />
+      <Spacer vertical />
+      <CostsSummary />
       <Spacer vertical />
       <Header
         icon={{
