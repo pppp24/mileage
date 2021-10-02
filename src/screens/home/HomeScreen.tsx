@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Colors} from '../../../typings/colors';
 import {Icons} from '../../../typings/icons';
-import {Header, Spacer} from '../../components';
+import {Header, Ripple, Spacer} from '../../components';
 import {CostsSummary, GasSummary} from '../../containers';
 import {hp} from '../../helpers/layout';
 
@@ -43,6 +43,7 @@ const Home = () => {
         }}
         text="Last Entries"
       />
+      <Ripple name="star" color={'red'} size={40} />
     </View>
   );
 };
