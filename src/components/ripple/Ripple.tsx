@@ -26,7 +26,6 @@ const Ripple = ({name, color, size, callback}) => {
       duration: 200,
       easing: Easing.bezier(0.0, 0.0, 0.2, 1),
     });
-    callback && callback();
   };
 
   const onPressedOut = () => {
@@ -57,7 +56,10 @@ const Ripple = ({name, color, size, callback}) => {
   };
 
   return (
-    <TouchableWithoutFeedback onPressIn={onPressedIn} onPressOut={onPressedOut}>
+    <TouchableWithoutFeedback
+      onPressIn={onPressedIn}
+      onPressOut={onPressedOut}
+      onPress={() => callback && callback()}>
       <View style={[styles.iconContainer, iconContainer]}>
         {renderRippleView()}
         <View>

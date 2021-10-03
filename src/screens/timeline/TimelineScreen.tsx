@@ -51,7 +51,6 @@ const TimelineScreen = () => {
                       backgroundColor: Colors.BLUE_500,
                       borderRadius: 50,
                       left: -Math.floor(radius / 2) - 1,
-                      zIndex: -999,
                     }}
                   />
                   <Spacer left marginLeft={wp(10)} />
@@ -115,7 +114,6 @@ const renderItem = () => {
             left: -Math.floor(radius / 2) - 1,
             justifyContent: 'center',
             alignItems: 'center',
-            zIndex: 9999,
           }}>
           <Icon
             icon={Icons.MaterialCommunityIcons}

@@ -5,15 +5,9 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSpring,
+  withTiming,
 } from 'react-native-reanimated';
-
-const SPRING_CONFIG = {
-  damping: 80,
-  overshootClamping: true,
-  restDisplacementThreshold: 0.1,
-  restSpeedThreshold: 0.1,
-  stiffness: 500,
-};
+import {Colors} from '../../../typings/colors';
 
 const BottomSheet = ({visible, children}) => {
   const dimensions = useWindowDimensions();
@@ -26,8 +20,8 @@ const BottomSheet = ({visible, children}) => {
 
   React.useEffect(() => {
     visible
-      ? (top.value = withSpring(0, SPRING_CONFIG))
-      : (top.value = withSpring(dimensions.height, SPRING_CONFIG));
+      ? (top.value = withTiming(0))
+      : (top.value = withTiming(dimensions.height));
   }, [visible]);
 
   return (
@@ -44,7 +38,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'white',
+    backgroundColor: Colors.GREY_900,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
