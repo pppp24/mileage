@@ -4,3 +4,5 @@ export {default as Heading} from './heading/Heading';
 export {default as Summary} from './summary/Summary';
 export {default as Expanded} from './expanded/Expanded';
 export {default as Ripple} from './ripple/Ripple';
+export {default as BottomSheet} from './bottom-sheet/BottomSheet';
+export {default as Timeline} from './timeline/Timeline';

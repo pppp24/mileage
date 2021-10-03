@@ -43,7 +43,9 @@ const Home = () => {
         }}
         text="Last Entries"
       />
-      <Ripple name="star" color={'red'} size={40} />
+      <View style={{position: 'absolute', bottom: 0, right: 0}}>
+        <Ripple name="plus" color={'white'} size={30} />
+      </View>
     </View>
   );
 };
