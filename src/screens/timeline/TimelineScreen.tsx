@@ -8,15 +8,18 @@ import {
   SectionList,
 } from 'react-native';
 import {finalizedOffers} from '../../../dummy-data/entries';
-import {BottomSheet, Ripple, Spacer, Timeline} from '../../components';
+import {BottomSheet, Ripple, Spacer} from '../../components';
 import moment from 'moment';
 import {hp, wp} from '../../helpers/layout';
-import {Colors} from '../../../typings/colors';
 import Icon from '../../components/icon/Icon';
+import {Colors} from '../../../typings/colors';
 import {Icons} from '../../../typings/icons';
+import {useDispatch} from 'react-redux';
+import {toggleShowMileageForm} from '../../redux/mileage/mileage.actions';
 
 const TimelineScreen = () => {
   const [visible, setVisible] = React.useState(false);
+  const dispatch = useDispatch();
   const radius = 20;
   return (
     <>
@@ -66,7 +69,12 @@ const TimelineScreen = () => {
           }}
         />
         <View style={{position: 'absolute', bottom: 0, right: 0}}>
-          <Ripple name="plus" color={'white'} size={30} />
+          <Ripple
+            name="plus"
+            color={'white'}
+            size={30}
+            callback={() => dispatch(toggleShowMileageForm())}
+          />
         </View>
       </View>
     </>

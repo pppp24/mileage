@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Colors} from '../../../typings/colors';
-import {Labels} from '../../../typings/gas';
+import {Labels} from '../../../typings/costs';
 import {Icons} from '../../../typings/icons';
 import {Spacer, Summary} from '../../components';
 import {hp} from '../../helpers/layout';

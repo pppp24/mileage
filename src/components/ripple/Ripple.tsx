@@ -9,7 +9,7 @@ import Animated, {
 import {Colors} from '../../../typings/colors';
 import Icon from '../icon/Icon';
 
-const Ripple = ({name, color, size}) => {
+const Ripple = ({name, color, size, callback}) => {
   const containerSize = size * 2;
   const iconContainer = {width: containerSize, height: containerSize};
   const maxOpacity = 0.12;
@@ -26,6 +26,7 @@ const Ripple = ({name, color, size}) => {
       duration: 200,
       easing: Easing.bezier(0.0, 0.0, 0.2, 1),
     });
+    callback && callback();
   };
 
   const onPressedOut = () => {
