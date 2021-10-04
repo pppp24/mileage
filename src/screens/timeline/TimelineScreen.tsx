@@ -8,7 +8,7 @@ import {
   SectionList,
 } from 'react-native';
 import {finalizedOffers} from '../../../dummy-data/entries';
-import {BottomSheet, Ripple, Spacer} from '../../components';
+import {BottomSheet, Expanded, Ripple, Spacer} from '../../components';
 import moment from 'moment';
 import {hp, wp} from '../../helpers/layout';
 import Icon from '../../components/icon/Icon';
@@ -16,11 +16,16 @@ import {Colors} from '../../../typings/colors';
 import {Icons} from '../../../typings/icons';
 import {useDispatch} from 'react-redux';
 import {toggleShowMileageForm} from '../../redux/mileage/mileage.actions';
+import {parseTimelineData} from '../../helpers/data';
+import {mileageEntries} from '../../../dummy-data/entries-two';
 
 const TimelineScreen = () => {
   const [visible, setVisible] = React.useState(false);
   const dispatch = useDispatch();
   const radius = 20;
+
+  const data = React.useMemo(() => parseTimelineData(mileageEntries), []);
+  console.log({data});
   return (
     <>
       <View style={{backgroundColor: Colors.GREY_900, paddingHorizontal: 10}}>
@@ -32,8 +37,9 @@ const TimelineScreen = () => {
             borderColor: Colors.BLUE_500,
             margin: 20,
           }}
-          sections={sectionData}
+          sections={data}
           keyExtractor={item => item.id.toString()}
+          renderItem={renderItem}
           renderSectionHeader={({section}) => {
             return (
               <>
@@ -91,8 +97,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const renderItem = () => {
+const renderItem = ({item}) => {
   const radius = 40;
+  console.log({item});
   return (
     <>
       <Spacer vertical />
@@ -100,9 +107,6 @@ const renderItem = () => {
         style={{
           width: wp(100),
           alignItems: 'center',
-          justifyContent: 'center',
-          // backgroundColor: 'red',
-          minHeight: hp(10),
         }}>
         <View
           style={{
@@ -122,7 +126,33 @@ const renderItem = () => {
             size={hp(2.3)}
           />
         </View>
-        <Text>Hello</Text>
+        <View
+          style={{
+            // backgroundColor: 'green',
+            flex: 1,
+            width: '80%',
+            flexDirection: 'row',
+          }}>
+          <View>
+            <Text style={{color: Colors.BLUE_50}}>Refueling</Text>
+            <Spacer top />
+            <Text style={{color: Colors.GREY_500}}>{`${moment(
+              item?.createdAt,
+            ).format('MMMM, D')}`}</Text>
+            <Spacer top />
+            <Text
+              style={{color: Colors.GREY_500}}>{`${item?.miles.toLocaleString(
+              'en-US',
+            )} mi`}</Text>
+          </View>
+          <Expanded />
+          <View>
+            <Text style={{color: Colors.BLUE_50}}>{`$${parseFloat(
+              `${item?.price * item?.gas}`,
+            ).toFixed(2)}`}</Text>
+          </View>
+          <Spacer horizontal />
+        </View>
       </View>
       <Spacer vertical />
       <Spacer vertical />
