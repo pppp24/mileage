@@ -9,6 +9,14 @@ import Animated, {
 } from 'react-native-reanimated';
 import {Colors} from '../../../typings/colors';
 
+const SPRING_CONFIG = {
+  damping: 80,
+  overshootClamping: true,
+  restDisplacementThreshold: 0.1,
+  restSpeedThreshold: 0.1,
+  stiffness: 500,
+};
+
 const BottomSheet = ({visible, children}) => {
   const dimensions = useWindowDimensions();
   const top = useSharedValue(dimensions.height);
@@ -20,8 +28,8 @@ const BottomSheet = ({visible, children}) => {
 
   React.useEffect(() => {
     visible
-      ? (top.value = withTiming(0))
-      : (top.value = withTiming(dimensions.height));
+      ? (top.value = withSpring(0, SPRING_CONFIG))
+      : (top.value = withSpring(dimensions.height, SPRING_CONFIG));
   }, [visible]);
 
   return (
