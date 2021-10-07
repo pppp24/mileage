@@ -1,8 +1,8 @@
 import React from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {Colors} from '../../../typings/colors';
-import {Icons} from '../../../typings/icons';
+import {useDispatch} from 'react-redux';
+import {Colors} from '../../constants/colors';
+import {Icons} from '../../constants/icons';
 import {Expanded, Header, Ripple, Spacer} from '../../components';
 import {CostsSummary, GasSummary, LastEntries} from '../../containers';
 import {hp} from '../../helpers/layout';

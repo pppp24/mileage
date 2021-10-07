@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {HorizontalSpacing, VerticalSpacing} from '../../../typings/spacing';
+import {HorizontalSpacing, VerticalSpacing} from '../../constants/spacing';
 
 interface SpacerProps {
   marginVertical?: number;

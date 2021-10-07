@@ -1,4 +1,4 @@
-import {hp, wp} from '../src/helpers/layout';
+import {hp, wp} from '../helpers/layout';
 
 enum HorizontalSpacing {
   ONE = wp(2.13),

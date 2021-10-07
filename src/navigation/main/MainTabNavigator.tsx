@@ -1,34 +1,20 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
-import {
-  Button,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Keyboard,
-} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {HomeScreen, TimelineScreen} from '../../screens';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Material from 'react-native-vector-icons/MaterialIcons';
-import {hp, wp} from '../../helpers/layout';
-import Icon from '../../components/icon/Icon';
-import {Routes} from '../../../typings/routes';
-import {BottomSheet, Expanded, Spacer} from '../../components';
-import {useDispatch, useSelector} from 'react-redux';
+import {hp} from '../../helpers/layout';
+import {Routes} from '../../constants/routes';
+import {BottomSheet} from '../../components';
+import {useSelector} from 'react-redux';
 import {selectShowMileageForm} from '../../redux/mileage/mileage.selectors';
-import {toggleShowMileageForm} from '../../redux/mileage/mileage.actions';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {Icons} from '../../../typings/icons';
-import {HorizontalSpacing, VerticalSpacing} from '../../../typings/spacing';
-import {Colors} from '../../../typings/colors';
 import {MileageForm} from '../../containers';
-import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 
 const MainTabNavigator = () => {
   const Tab = createBottomTabNavigator();
   const showMileageForm = useSelector(selectShowMileageForm);
-  const dispatch = useDispatch();
   return (
     <>
       <Tab.Navigator

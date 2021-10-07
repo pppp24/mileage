@@ -6,7 +6,7 @@ import Animated, {
   withTiming,
   Easing,
 } from 'react-native-reanimated';
-import {Colors} from '../../../typings/colors';
+import {Colors} from '../../constants/colors';
 import Icon from '../icon/Icon';
 
 const Ripple = ({name, color, size, callback}) => {

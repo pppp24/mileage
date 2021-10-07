@@ -1,9 +1,9 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {useSelector} from 'react-redux';
-import {Colors} from '../../../typings/colors';
-import {Labels} from '../../../typings/gas';
-import {Icons} from '../../../typings/icons';
+import {Colors} from '../../constants/colors';
+import {Labels} from '../../constants/gas';
+import {Icons} from '../../constants/icons';
 import {Spacer, Summary} from '../../components';
 import {hp} from '../../helpers/layout';
 import {

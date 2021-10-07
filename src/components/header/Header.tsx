@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {Colors} from '../../../typings/colors';
-import {VerticalSpacing} from '../../../typings/spacing';
+import {Colors} from '../../constants/colors';
+import {VerticalSpacing} from '../../constants/spacing';
 import Icon from '../icon/Icon';
 import Spacer from '../spacer/Spacer';
 

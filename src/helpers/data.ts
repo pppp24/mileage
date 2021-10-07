@@ -1,6 +1,4 @@
 const parseTimelineData = data => {
-  console.log({data});
-
   const result = data.map(e => {
     return {
       data: e?.data,

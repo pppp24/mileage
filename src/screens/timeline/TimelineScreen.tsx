@@ -1,16 +1,14 @@
 import React from 'react';
 import {StyleSheet, Text, View, SectionList} from 'react-native';
-import {finalizedOffers} from '../../../dummy-data/entries';
 import {Expanded, Ripple, Spacer} from '../../components';
 import moment from 'moment';
 import {hp, wp} from '../../helpers/layout';
 import Icon from '../../components/icon/Icon';
-import {Colors} from '../../../typings/colors';
-import {Icons} from '../../../typings/icons';
+import {Colors} from '../../constants/colors';
+import {Icons} from '../../constants/icons';
 import {useDispatch, useSelector} from 'react-redux';
 import {toggleShowMileageForm} from '../../redux/mileage/mileage.actions';
 import {parseTimelineData} from '../../helpers/data';
-// import {mileageEntries} from '../../../dummy-data/entries-two';
 import {selectMileageEntries} from '../../redux/mileage/mileage.selectors';
 
 const TimelineScreen = () => {
@@ -22,8 +20,6 @@ const TimelineScreen = () => {
     () => parseTimelineData(mileageEntries),
     [mileageEntries],
   );
-
-  console.log({data});
 
   return (
     <>
@@ -40,7 +36,6 @@ const TimelineScreen = () => {
             borderLeftWidth: 2,
             borderColor: Colors.BLUE_500,
             margin: 20,
-            // flex: 1,
           }}
           sections={data}
           keyExtractor={item => item.id.toString()}
@@ -92,15 +87,6 @@ const TimelineScreen = () => {
 };
 
 export default TimelineScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#212121',
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
 
 const renderItem = ({item}) => {
   const radius = 40;

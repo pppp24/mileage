@@ -15,7 +15,7 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import Zocial from 'react-native-vector-icons/Zocial';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import {hp} from '../../helpers/layout';
-import {Icons} from '../../../typings/icons';
+import {Icons} from '../../constants/icons';
 
 const Icon = ({
   icon = Icons.Entypo,

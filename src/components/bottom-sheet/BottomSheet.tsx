@@ -1,13 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, useWindowDimensions, View} from 'react-native';
+import {StyleSheet, useWindowDimensions} from 'react-native';
 import Animated, {
-  useAnimatedGestureHandler,
   useAnimatedStyle,
   useSharedValue,
   withSpring,
-  withTiming,
 } from 'react-native-reanimated';
-import {Colors} from '../../../typings/colors';
+import {Colors} from '../../constants/colors';
 
 const SPRING_CONFIG = {
   damping: 80,

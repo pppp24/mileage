@@ -7,9 +7,9 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {Colors} from '../../../typings/colors';
-import {Icons} from '../../../typings/icons';
-import {HorizontalSpacing, VerticalSpacing} from '../../../typings/spacing';
+import {Colors} from '../../constants/colors';
+import {Icons} from '../../constants/icons';
+import {HorizontalSpacing, VerticalSpacing} from '../../constants/spacing';
 import {Input, Spacer} from '../../components';
 import {useDispatch, useSelector} from 'react-redux';
 import Icon from '../../components/icon/Icon';
@@ -45,7 +45,7 @@ const MileageForm = () => {
                 />
                 <Input.TextInput
                   placeholder="Odometer (mi)"
-                  value={miles}
+                  value={miles.toString()}
                   onChangeText={setMiles}
                   keyboardType="numeric"
                   maxLength={9}
@@ -130,8 +130,6 @@ const MileageForm = () => {
 
 export default MileageForm;
 
-const styles = StyleSheet.create({});
-
 const MileageFormHeader = () => {
   const {miles, setMiles, gas, setGas, price, setPrice, timestamp} =
     React.useContext(FormContext);
@@ -142,9 +140,9 @@ const MileageFormHeader = () => {
       dispatch(
         addNewMileageEntry({
           id: timestamp,
-          miles,
-          gas,
-          price,
+          miles: parseInt(miles),
+          gas: parseFloat(gas),
+          price: parseFloat(price),
           createdAt: timestamp,
         }),
       );
@@ -166,7 +164,6 @@ const MileageFormHeader = () => {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-
         width: wp(100),
         paddingHorizontal: HorizontalSpacing.TWO,
       }}>

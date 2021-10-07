@@ -1,15 +1,13 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Expanded, Spacer} from '..';
-import {Colors} from '../../../typings/colors';
-import {VerticalSpacing} from '../../../typings/spacing';
-import {hp, wp} from '../../helpers/layout';
+import {Colors} from '../../constants/colors';
+import {wp} from '../../helpers/layout';
 import Icon from '../icon/Icon';
 
 const Summary = ({children, ...restProps}) => {
   return (
     <View style={styles.container} {...restProps}>
-      {/* <Spacer vertical /> */}
       {children}
     </View>
   );
