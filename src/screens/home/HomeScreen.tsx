@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Button,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableWithoutFeedback,
@@ -9,17 +10,21 @@ import {
 import {useDispatch, useSelector} from 'react-redux';
 import {Colors} from '../../../typings/colors';
 import {Icons} from '../../../typings/icons';
-import {BottomSheet, Header, Ripple, Spacer} from '../../components';
-import {CostsSummary, GasSummary} from '../../containers';
+import {BottomSheet, Expanded, Header, Ripple, Spacer} from '../../components';
+import {CostsSummary, GasSummary, LastEntries} from '../../containers';
 import {hp} from '../../helpers/layout';
 import {selectShowMileageForm} from '../../redux/mileage/mileage.selectors';
 import {toggleShowMileageForm} from '../../redux/mileage/mileage.actions';
+import {VerticalSpacing} from '../../../typings/spacing';
 
 const Home = () => {
   const dispatch = useDispatch();
   return (
+    // <View style={{flex: 1, position: 'relative'}}>
     <>
-      <View style={styles.container}>
+      <ScrollView
+        contentContainerStyle={styles.container}
+        style={{flex: 1, backgroundColor: '#212121'}}>
         <Spacer vertical />
         <Header
           icon={{
@@ -54,15 +59,19 @@ const Home = () => {
           }}
           text="Last Entries"
         />
-        <View style={{position: 'absolute', bottom: 0, right: 0}}>
-          <Ripple
-            name="plus"
-            color={'white'}
-            size={30}
-            callback={() => dispatch(toggleShowMileageForm())}
-          />
-        </View>
+        <Spacer vertical />
+        <LastEntries />
+        <Expanded />
+      </ScrollView>
+      <View style={{position: 'absolute', bottom: 0, right: 0}}>
+        <Ripple
+          name="plus"
+          color={'white'}
+          size={30}
+          callback={() => dispatch(toggleShowMileageForm())}
+        />
       </View>
+      {/* </View> */}
     </>
   );
 };
@@ -71,7 +80,6 @@ export default Home;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#212121',
     flex: 1,
     alignItems: 'center',
   },

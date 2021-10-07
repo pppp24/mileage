@@ -12,8 +12,8 @@ import {Colors} from '../../../typings/colors';
 const SPRING_CONFIG = {
   damping: 80,
   overshootClamping: true,
-  restDisplacementThreshold: 0.1,
-  restSpeedThreshold: 0.1,
+  restDisplacementThreshold: 0.0,
+  restSpeedThreshold: 0.0,
   stiffness: 500,
 };
 

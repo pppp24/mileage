@@ -15,8 +15,8 @@ export default Input;
 Input.Icon = ({...restProps}) => {
   return (
     <>
-      <Icon {...restProps} />
-      <Spacer right />
+      <Icon {...restProps} size={wp(5)} />
+      <Spacer horizontal />
     </>
   );
 };
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   },
   input: {
     flexShrink: 1,
-    borderColor: Colors.BLUE_50,
+    borderColor: Colors.GREY_500,
     // backgroundColor: 'red',
     width: '100%',
     borderWidth: 1,

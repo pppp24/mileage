@@ -1,8 +1,8 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-const Expanded = () => {
-  return <View style={{flex: 1}} />;
+const Expanded = ({flex = 1}) => {
+  return <View style={{flex}} />;
 };
 
 export default Expanded;

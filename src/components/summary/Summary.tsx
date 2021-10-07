@@ -2,13 +2,14 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Expanded, Spacer} from '..';
 import {Colors} from '../../../typings/colors';
-import {wp} from '../../helpers/layout';
+import {VerticalSpacing} from '../../../typings/spacing';
+import {hp, wp} from '../../helpers/layout';
 import Icon from '../icon/Icon';
 
 const Summary = ({children, ...restProps}) => {
   return (
     <View style={styles.container} {...restProps}>
-      <Spacer vertical />
+      {/* <Spacer vertical /> */}
       {children}
     </View>
   );
@@ -43,7 +44,7 @@ Summary.Row = ({icon, text, label}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexShrink: 1,
+    flexGrow: 1,
     backgroundColor: Colors.GREY_800,
     width: wp(90),
     borderRadius: 10,

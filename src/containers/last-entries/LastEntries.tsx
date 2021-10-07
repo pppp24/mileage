@@ -6,20 +6,20 @@ import {Icons} from '../../../typings/icons';
 import {Spacer, Summary} from '../../components';
 import {hp} from '../../helpers/layout';
 
-const CostsSummary = () => {
+const LastEntries = () => {
   return (
     <Summary>
-      <CostsSummarySection title="THIS MONTH" />
-      <CostsSummarySection title="PREVIOUS MONTH" />
+      <LastEntriesSection title="SEPTEMBER 2021" />
+      <LastEntriesSection title="JULY 2021" />
     </Summary>
   );
 };
 
-export default CostsSummary;
+export default LastEntries;
 
 const styles = StyleSheet.create({});
 
-const CostsSummarySection = ({
+const LastEntriesSection = ({
   title,
   petrolAmount = 0,
   otherCostsAmount = 0,
@@ -38,17 +38,6 @@ const CostsSummarySection = ({
         }}
         label={Labels.Gas}
         text={`$ ${petrolAmount}`}
-      />
-      <Spacer top />
-      <Summary.Row
-        icon={{
-          icon: Icons.MaterialCommunityIcons,
-          name: 'cash',
-          color: Colors.BLUE_500,
-          size: hp(2.3),
-        }}
-        label={Labels.OtherCosts}
-        text={`$ ${otherCostsAmount}`}
       />
       <Spacer top />
     </>

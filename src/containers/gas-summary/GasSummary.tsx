@@ -9,6 +9,7 @@ import {hp} from '../../helpers/layout';
 const GasSummary = () => {
   return (
     <Summary>
+      <Spacer top />
       <Summary.Row
         icon={{
           icon: Icons.Feather,
@@ -19,6 +20,7 @@ const GasSummary = () => {
         label={Labels.AverageFuelConsumption}
         text={`${6.458} mi/l`}
       />
+      <Spacer top />
       <Summary.Row
         icon={{
           icon: Icons.MaterialCommunityIcons,
@@ -29,6 +31,7 @@ const GasSummary = () => {
         label={Labels.LastFuelConsumption}
         text={`${6.458} mi/l`}
       />
+      <Spacer top />
       <Summary.Row
         icon={{
           icon: Icons.MaterialCommunityIcons,
@@ -39,6 +42,7 @@ const GasSummary = () => {
         label={Labels.LastFuelPrice}
         text={`${6.458} mi/l`}
       />
+      <Spacer top />
       <Summary.Row label={'2021-09-24 / 7 days ago'} />
       <Spacer top />
     </Summary>
