@@ -1,14 +1,7 @@
 import React from 'react';
-import {
-  Button,
-  StyleSheet,
-  Text,
-  View,
-  useWindowDimensions,
-  SectionList,
-} from 'react-native';
+import {StyleSheet, Text, View, SectionList} from 'react-native';
 import {finalizedOffers} from '../../../dummy-data/entries';
-import {BottomSheet, Expanded, Ripple, Spacer} from '../../components';
+import {Expanded, Ripple, Spacer} from '../../components';
 import moment from 'moment';
 import {hp, wp} from '../../helpers/layout';
 import Icon from '../../components/icon/Icon';
@@ -20,12 +13,10 @@ import {parseTimelineData} from '../../helpers/data';
 import {mileageEntries} from '../../../dummy-data/entries-two';
 
 const TimelineScreen = () => {
-  const [visible, setVisible] = React.useState(false);
   const dispatch = useDispatch();
   const radius = 20;
-
   const data = React.useMemo(() => parseTimelineData(mileageEntries), []);
-  console.log({data});
+
   return (
     <>
       <View style={{backgroundColor: Colors.GREY_900, paddingHorizontal: 10}}>
@@ -128,7 +119,6 @@ const renderItem = ({item}) => {
         </View>
         <View
           style={{
-            // backgroundColor: 'green',
             flex: 1,
             width: '80%',
             flexDirection: 'row',
@@ -159,41 +149,3 @@ const renderItem = ({item}) => {
     </>
   );
 };
-
-const sectionData = [
-  {
-    data: finalizedOffers[0],
-    keyExtractor: (item, index) => item.id.toString(),
-    renderItem,
-    ItemSeparatorComponent: () => <View />,
-    title: moment(finalizedOffers[0][0].date).format('ll').toString(),
-  },
-  {
-    data: finalizedOffers[1],
-    keyExtractor: (item, index) => item.id.toString(),
-    renderItem,
-    ItemSeparatorComponent: () => <View />,
-    title: moment(finalizedOffers[1][0].date).format('ll').toString(),
-  },
-  {
-    data: finalizedOffers[2],
-    keyExtractor: (item, index) => item.id.toString(),
-    renderItem,
-    ItemSeparatorComponent: () => <View />,
-    title: moment(finalizedOffers[2][0].date).format('ll').toString(),
-  },
-  {
-    data: finalizedOffers[3],
-    keyExtractor: (item, index) => item.id.toString(),
-    renderItem,
-    ItemSeparatorComponent: () => <View />,
-    title: moment(finalizedOffers[3][0].date).format('ll').toString(),
-  },
-  {
-    data: finalizedOffers[4],
-    keyExtractor: (item, index) => item.id.toString(),
-    renderItem,
-    ItemSeparatorComponent: () => <View />,
-    title: moment(finalizedOffers[4][0].date).format('ll').toString(),
-  },
-];

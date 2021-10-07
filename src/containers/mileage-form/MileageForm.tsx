@@ -4,15 +4,17 @@ import {Colors} from '../../../typings/colors';
 import {Icons} from '../../../typings/icons';
 import {HorizontalSpacing} from '../../../typings/spacing';
 import {Input, Spacer} from '../../components';
+import moment from 'moment';
 
 const MileageForm = () => {
   const [miles, setMiles] = React.useState(0);
   const [gas, setGas] = React.useState(12);
   const [price, setPrice] = React.useState(1.5);
-  const [date, setDate] = React.useState(Date.now());
-  const [time, setTime] = React.useState('');
+  const [timestamp] = React.useState(Date.now());
 
   const totalCost = (gas * price).toString();
+  const date = moment(timestamp).format('YYYY-MM-DD');
+  const time = moment(timestamp).format('LT');
 
   return (
     <View>
