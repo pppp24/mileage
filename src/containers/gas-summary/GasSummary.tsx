@@ -1,12 +1,24 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {useSelector} from 'react-redux';
 import {Colors} from '../../../typings/colors';
-import {Labels} from '../../../typings/costs';
+import {Labels} from '../../../typings/gas';
 import {Icons} from '../../../typings/icons';
 import {Spacer, Summary} from '../../components';
 import {hp} from '../../helpers/layout';
+import {
+  selectAverageFuelConsumption,
+  selectLastEntry,
+  selectLastFuelConsumption,
+  selectLastFuelPrice,
+} from '../../redux/mileage/mileage.selectors';
+import moment from 'moment';
 
 const GasSummary = () => {
+  const averageFuelConsumption = useSelector(selectAverageFuelConsumption);
+  const lastFuelPrice = useSelector(selectLastFuelPrice);
+  const lastFuelConsumption = useSelector(selectLastFuelConsumption);
+  const lastEntry = useSelector(selectLastEntry);
   return (
     <Summary>
       <Spacer top />
@@ -18,7 +30,7 @@ const GasSummary = () => {
           size: hp(2.3),
         }}
         label={Labels.AverageFuelConsumption}
-        text={`${6.458} mi/l`}
+        text={`${averageFuelConsumption} mi/l`}
       />
       <Spacer top />
       <Summary.Row
@@ -29,7 +41,7 @@ const GasSummary = () => {
           size: hp(2.3),
         }}
         label={Labels.LastFuelConsumption}
-        text={`${6.458} mi/l`}
+        text={`${lastFuelConsumption} mi/l`}
       />
       <Spacer top />
       <Summary.Row
@@ -40,10 +52,14 @@ const GasSummary = () => {
           size: hp(2.3),
         }}
         label={Labels.LastFuelPrice}
-        text={`${6.458} mi/l`}
+        text={`$${lastFuelPrice}`}
       />
       <Spacer top />
-      <Summary.Row label={'2021-09-24 / 7 days ago'} />
+      <Summary.Row
+        label={`${moment(lastEntry.createdAt).format('YYYY-MM-DD')} / ${moment(
+          lastEntry.createdAt,
+        ).fromNow()} `}
+      />
       <Spacer top />
     </Summary>
   );

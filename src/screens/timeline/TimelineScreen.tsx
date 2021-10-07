@@ -7,19 +7,32 @@ import {hp, wp} from '../../helpers/layout';
 import Icon from '../../components/icon/Icon';
 import {Colors} from '../../../typings/colors';
 import {Icons} from '../../../typings/icons';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {toggleShowMileageForm} from '../../redux/mileage/mileage.actions';
 import {parseTimelineData} from '../../helpers/data';
-import {mileageEntries} from '../../../dummy-data/entries-two';
+// import {mileageEntries} from '../../../dummy-data/entries-two';
+import {selectMileageEntries} from '../../redux/mileage/mileage.selectors';
 
 const TimelineScreen = () => {
   const dispatch = useDispatch();
+  const mileageEntries = useSelector(selectMileageEntries);
+  console.log({entries: JSON.stringify(mileageEntries)});
   const radius = 20;
-  const data = React.useMemo(() => parseTimelineData(mileageEntries), []);
+  const data = React.useMemo(
+    () => parseTimelineData(mileageEntries),
+    [mileageEntries],
+  );
+
+  console.log({data});
 
   return (
     <>
-      <View style={{backgroundColor: Colors.GREY_900, paddingHorizontal: 10}}>
+      <View
+        style={{
+          backgroundColor: Colors.GREY_900,
+          paddingHorizontal: 10,
+          flex: 1,
+        }}>
         <SectionList
           showsVerticalScrollIndicator={false}
           stickySectionHeadersEnabled
@@ -27,6 +40,7 @@ const TimelineScreen = () => {
             borderLeftWidth: 2,
             borderColor: Colors.BLUE_500,
             margin: 20,
+            // flex: 1,
           }}
           sections={data}
           keyExtractor={item => item.id.toString()}
@@ -64,14 +78,14 @@ const TimelineScreen = () => {
             );
           }}
         />
-        <View style={{position: 'absolute', bottom: 0, right: 0}}>
-          <Ripple
-            name="plus"
-            color={'white'}
-            size={30}
-            callback={() => dispatch(toggleShowMileageForm())}
-          />
-        </View>
+      </View>
+      <View style={{position: 'absolute', bottom: 0, right: 0}}>
+        <Ripple
+          name="plus"
+          color={'white'}
+          size={30}
+          callback={() => dispatch(toggleShowMileageForm())}
+        />
       </View>
     </>
   );

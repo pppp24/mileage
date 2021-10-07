@@ -1,0 +1,2 @@
+- Assumptions made
+- There will always be at least two data entries (in order to calculate last fuel consumption)

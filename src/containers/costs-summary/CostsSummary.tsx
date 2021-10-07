@@ -1,16 +1,33 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {useSelector} from 'react-redux';
 import {Colors} from '../../../typings/colors';
 import {Labels} from '../../../typings/costs';
 import {Icons} from '../../../typings/icons';
 import {Spacer, Summary} from '../../components';
 import {hp} from '../../helpers/layout';
+import {
+  selectTotalFuelCostsForCurrentMonth,
+  selectTotalFuelCostsForPreviousMonth,
+} from '../../redux/mileage/mileage.selectors';
 
 const CostsSummary = () => {
+  const totalFuelCostsForCurrentMonth = useSelector(
+    selectTotalFuelCostsForCurrentMonth,
+  );
+  const totalFuelCostsForPreviousMonth = useSelector(
+    selectTotalFuelCostsForPreviousMonth,
+  );
   return (
     <Summary>
-      <CostsSummarySection title="THIS MONTH" />
-      <CostsSummarySection title="PREVIOUS MONTH" />
+      <CostsSummarySection
+        title="THIS MONTH"
+        petrolAmount={totalFuelCostsForCurrentMonth.toFixed(2)}
+      />
+      <CostsSummarySection
+        title="PREVIOUS MONTH"
+        petrolAmount={totalFuelCostsForPreviousMonth.toFixed(2)}
+      />
     </Summary>
   );
 };

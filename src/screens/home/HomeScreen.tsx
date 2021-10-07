@@ -1,26 +1,16 @@
 import React from 'react';
-import {
-  Button,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableWithoutFeedback,
-  View,
-} from 'react-native';
+import {ScrollView, StyleSheet, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {Colors} from '../../../typings/colors';
 import {Icons} from '../../../typings/icons';
-import {BottomSheet, Expanded, Header, Ripple, Spacer} from '../../components';
+import {Expanded, Header, Ripple, Spacer} from '../../components';
 import {CostsSummary, GasSummary, LastEntries} from '../../containers';
 import {hp} from '../../helpers/layout';
-import {selectShowMileageForm} from '../../redux/mileage/mileage.selectors';
 import {toggleShowMileageForm} from '../../redux/mileage/mileage.actions';
-import {VerticalSpacing} from '../../../typings/spacing';
 
 const Home = () => {
   const dispatch = useDispatch();
   return (
-    // <View style={{flex: 1, position: 'relative'}}>
     <>
       <ScrollView
         contentContainerStyle={styles.container}
@@ -71,7 +61,6 @@ const Home = () => {
           callback={() => dispatch(toggleShowMileageForm())}
         />
       </View>
-      {/* </View> */}
     </>
   );
 };

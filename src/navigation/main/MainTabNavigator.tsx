@@ -33,7 +33,6 @@ const MainTabNavigator = () => {
     <>
       <Tab.Navigator
         screenOptions={{
-          tabBarShowLabel: false,
           headerBackground: () => (
             <View style={{flex: 1, backgroundColor: '#424242'}} />
           ),
@@ -56,6 +55,15 @@ const MainTabNavigator = () => {
                 color={focused ? 'white' : '#9e9e9e'}
               />
             ),
+            tabBarLabel: ({focused}) => (
+              <Text
+                style={{
+                  color: focused ? 'white' : '#9e9e9e',
+                  fontSize: hp(1.2),
+                }}>
+                Home
+              </Text>
+            ),
           }}
         />
         <Tab.Screen
@@ -69,49 +77,21 @@ const MainTabNavigator = () => {
                 color={focused ? 'white' : '#9e9e9e'}
               />
             ),
+            tabBarLabel: ({focused}) => (
+              <Text
+                style={{
+                  color: focused ? 'white' : '#9e9e9e',
+                  fontSize: hp(1.2),
+                }}>
+                Timeline
+              </Text>
+            ),
           }}
         />
       </Tab.Navigator>
       <BottomSheet visible={showMileageForm}>
         <SafeAreaView style={{flex: 1, alignItems: 'center'}}>
-          <>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-
-                width: wp(100),
-                paddingHorizontal: HorizontalSpacing.TWO,
-              }}>
-              <TouchableOpacity
-                onPress={() => dispatch(toggleShowMileageForm())}>
-                <Icon
-                  icon={Icons.MaterialCommunityIcons}
-                  name="close"
-                  color={Colors.BLUE_50}
-                />
-              </TouchableOpacity>
-              <Text style={{fontSize: hp(2.5), color: Colors.BLUE_50}}>
-                Refueling
-              </Text>
-              <TouchableOpacity>
-                <Icon
-                  icon={Icons.MaterialCommunityIcons}
-                  name="check"
-                  color={Colors.BLUE_50}
-                />
-              </TouchableOpacity>
-            </View>
-            <TouchableWithoutFeedback
-              style={{flex: 1, alignItems: 'center'}}
-              onPress={() => Keyboard.dismiss()}>
-              <>
-                <Spacer vertical marginVertical={VerticalSpacing.FIVE} />
-                <MileageForm />
-              </>
-            </TouchableWithoutFeedback>
-          </>
+          <MileageForm />
         </SafeAreaView>
       </BottomSheet>
     </>
