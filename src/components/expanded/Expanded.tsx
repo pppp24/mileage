@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {StyleSheet, View} from 'react-native';
 
-const Expanded = ({flex = 1}) => {
+interface Props {
+  flex?: number;
+}
+
+const Expanded: FC<Props> = ({flex = 1}) => {
   return <View style={{flex}} />;
 };
 

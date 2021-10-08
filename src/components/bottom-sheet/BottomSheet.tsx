@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC, ReactChild} from 'react';
 import {StyleSheet, useWindowDimensions} from 'react-native';
 import Animated, {
   useAnimatedStyle,
@@ -15,7 +15,12 @@ const SPRING_CONFIG = {
   stiffness: 500,
 };
 
-const BottomSheet = ({visible, children}) => {
+interface Props {
+  visible?: boolean;
+  children: ReactChild[];
+}
+
+const BottomSheet: FC<Props> = ({visible, children}) => {
   const dimensions = useWindowDimensions();
   const top = useSharedValue(dimensions.height);
   const style = useAnimatedStyle(() => {

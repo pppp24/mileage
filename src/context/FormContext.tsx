@@ -1,7 +1,10 @@
 import moment from 'moment';
 import React from 'react';
+import {FormContextType} from '../../typings/context';
 
-export const FormContext = React.createContext(undefined);
+export const FormContext = React.createContext<FormContextType | undefined>(
+  undefined,
+);
 
 const FormProvider = ({children}) => {
   const [miles, setMiles] = React.useState('');

@@ -2,13 +2,11 @@ import {createAction} from 'typesafe-actions';
 import {MileageActionTypes} from './mileage.types';
 
 interface NewMileageEntryPayload {
-  data: {
-    id: number;
-    miles: string;
-    gas: string;
-    price: string;
-    createdAt: number;
-  };
+  id: number;
+  miles: number;
+  gas: number;
+  price: number;
+  createdAt: number;
 }
 
 const toggleShowMileageForm = createAction(

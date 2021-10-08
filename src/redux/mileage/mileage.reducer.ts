@@ -1,4 +1,4 @@
-import {mileageEntries} from './../../../dummy-data/entries-two';
+import {mileageEntries} from '../../../dummy-data/entries';
 import {createReducer} from 'typesafe-actions';
 import {MileageActionTypes} from './mileage.types';
 import moment from 'moment';

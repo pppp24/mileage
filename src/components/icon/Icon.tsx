@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {StyleSheet} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -16,8 +16,16 @@ import Zocial from 'react-native-vector-icons/Zocial';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import {hp} from '../../helpers/layout';
 import {Icons} from '../../constants/icons';
+import {Colors} from '../../constants/colors';
 
-const Icon = ({
+interface Props {
+  icon?: Icons;
+  name?: string;
+  color?: Colors;
+  size?: number;
+}
+
+const Icon: FC<Props> = ({
   icon = Icons.Entypo,
   name = 'home',
   color = 'black',

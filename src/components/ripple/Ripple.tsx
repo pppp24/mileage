@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {StyleSheet, View, TouchableWithoutFeedback} from 'react-native';
 import Animated, {
   useAnimatedStyle,
@@ -9,7 +9,14 @@ import Animated, {
 import {Colors} from '../../constants/colors';
 import Icon from '../icon/Icon';
 
-const Ripple = ({name, color, size, callback}) => {
+interface Props {
+  name?: string;
+  color?: Colors;
+  size?: number;
+  callback?: () => void;
+}
+
+const Ripple: FC<Props> = ({name, color, size = 25, callback}) => {
   const containerSize = size * 2;
   const iconContainer = {width: containerSize, height: containerSize};
   const maxOpacity = 0.12;

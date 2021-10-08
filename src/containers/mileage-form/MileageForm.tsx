@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Alert,
-  Keyboard,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Alert, Keyboard, Text, TouchableOpacity, View} from 'react-native';
 import {Colors} from '../../constants/colors';
 import {Icons} from '../../constants/icons';
 import {HorizontalSpacing, VerticalSpacing} from '../../constants/spacing';
@@ -21,10 +14,11 @@ import {
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import {FormContext} from '../../context/FormContext';
 import {selectLastEntry} from '../../redux/mileage/mileage.selectors';
+import {FormContextType} from '../../../typings/context';
 
 const MileageForm = () => {
   const {miles, setMiles, gas, setGas, price, setPrice, date, time, totalCost} =
-    React.useContext(FormContext);
+    React.useContext(FormContext) as FormContextType;
   const lastEntry = useSelector(selectLastEntry);
 
   return (
@@ -132,11 +126,15 @@ export default MileageForm;
 
 const MileageFormHeader = () => {
   const {miles, setMiles, gas, setGas, price, setPrice, timestamp} =
-    React.useContext(FormContext);
+    React.useContext(FormContext) as FormContextType;
   const dispatch = useDispatch();
   const lastEntry = useSelector(selectLastEntry);
   const handleSubmit = () => {
-    if (miles >= lastEntry.miles && gas >= 0 && price >= 0) {
+    if (
+      miles >= lastEntry.miles &&
+      parseInt(gas) >= 0 &&
+      parseInt(price) >= 0
+    ) {
       dispatch(
         addNewMileageEntry({
           id: timestamp,

@@ -1,11 +1,22 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Colors} from '../../constants/colors';
+import {Icons} from '../../constants/icons';
 import {VerticalSpacing} from '../../constants/spacing';
 import Icon from '../icon/Icon';
 import Spacer from '../spacer/Spacer';
 
-const Header = ({icon, text}) => {
+interface Props {
+  icon?: {
+    icon?: Icons;
+    name?: string;
+    color?: Colors;
+    size?: number;
+  };
+  text?: string;
+}
+
+const Header: FC<Props> = ({icon, text}) => {
   return (
     <View style={styles.container}>
       <Spacer vertical marginVertical={VerticalSpacing.TWO} />
