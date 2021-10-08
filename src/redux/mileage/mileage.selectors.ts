@@ -68,14 +68,11 @@ const selectLastEntry = ({mileage}) => {
 
 const selectTotalFuelCostsForCurrentMonth = ({mileage}) => {
   const {mileageEntries} = mileage;
-
   const currentMonth = moment(Date.now()).format('MMMM');
   const currentYear = moment(Date.now()).format('YYYY');
-  console.log({currentMonth, currentYear});
   const lastMonthEntry = mileageEntries.filter(
     e => e.date.month === currentMonth && e.date.year === parseInt(currentYear),
   );
-  console.log({lastMonthEntry});
   if (lastMonthEntry.length > 0) {
     return lastMonthEntry[0].data.reduce((a, v) => (a += v.price * v.gas), 0);
   } else {
@@ -91,9 +88,6 @@ const selectTotalFuelCostsForPreviousMonth = ({mileage}) => {
     e =>
       e.date.month === previousMonth && e.date.year === parseInt(currentYear),
   );
-
-  console.log({previousMonth});
-  console.log({beforeLastMonthEntry});
 
   if (beforeLastMonthEntry.length > 0) {
     return beforeLastMonthEntry[0].data.reduce(

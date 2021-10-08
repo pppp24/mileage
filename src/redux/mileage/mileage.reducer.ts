@@ -27,7 +27,10 @@ const mileageReducer = createReducer<MileageState>(initialState)
     // Assuming incoming will always be sorted in ascending order
     // And that only entries for current timestamp can be added, and not dates in past or future
     let latestEntry = prevEntries[prevEntries.length - 1];
-    if (latestEntry.date.month === month && latestEntry.date.year === year) {
+    if (
+      latestEntry.date.month === month &&
+      latestEntry.date.year === parseInt(year)
+    ) {
       let amendedLatestEntry = {
         date: {
           ...latestEntry.date,
