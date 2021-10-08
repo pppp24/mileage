@@ -1,19 +1,22 @@
-- Assumptions made
-  There will always be at least two data entries (in order to calculate last fuel consumption)
+## Assumptions made :
 
-- Limitations due to time
-  Could not implement proper UI testing due to time constraints, so focussed on Redux testing
+- There will always be at least two data entries (in order to calculate last fuel consumption)
 
-Environment details :
-XCode : 13.0
-NodeJS : 16.9.1
-React Native : 0.65.1
-Yarn : 1.22.1
+## Limitations due to time
 
-Built on iPhone 12 simulator running iOS 15, not tested on Android
+- Could not implement proper UI testing due to time constraints, so focussed on Redux testing
 
-Running instructions:
+## Environment details :
 
-yarn
-cd ios && npx pod-install
-yarn ios
+- XCode : 13.0
+- NodeJS : 16.9.1
+- React Native : 0.65.1
+- Yarn : 1.22.1
+
+## Built on iPhone 12 simulator running iOS 15, not tested on Android
+
+## Running instructions:
+
+- yarn
+- cd ios && npx pod-install
+- yarn ios
