@@ -100,7 +100,7 @@ it('should calculate the average fuel consumption', () => {
   expect(result).toEqual(((69610 - 69283) / (15 + 12 + 10)).toFixed(3));
 });
 
-it('should calculate the average fuel consumption', () => {
+it('should calculate the total fuel costs for the current month', () => {
   const mileage = {
     mileageEntries: [
       {
