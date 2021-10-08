@@ -10,3 +10,9 @@ NodeJS : 16.9.1
 React Native : 0.65.1
 
 Built on iPhone 12 simulator running iOS 15, not tested on Android
+
+Running instructions:
+
+yarn
+cd ios && npx pod-install
+yarn ios
