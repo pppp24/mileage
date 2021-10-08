@@ -8,6 +8,7 @@ Environment details :
 XCode : 13.0
 NodeJS : 16.9.1
 React Native : 0.65.1
+Yarn : 1.22.1
 
 Built on iPhone 12 simulator running iOS 15, not tested on Android
 
