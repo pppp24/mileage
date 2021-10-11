@@ -11,7 +11,9 @@ const FormProvider = ({children}) => {
   const [gas, setGas] = React.useState('');
   const [price, setPrice] = React.useState('');
   const [timestamp] = React.useState(Date.now());
-  const totalCost = (parseInt(gas) * parseInt(price)).toString();
+  console.log({price: parseInt(price), gas: parseInt(gas)});
+  const totalCost = (parseFloat(gas) * parseFloat(price)).toFixed(2).toString();
+  console.log({totalCost});
   const date = moment(timestamp).format('YYYY-MM-DD');
   const time = moment(timestamp).format('LT');
 

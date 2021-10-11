@@ -88,7 +88,7 @@ const MileageForm = () => {
                 placeholder="Total cost"
                 value={
                   Number.isNaN(parseFloat(totalCost))
-                    ? 'Invalid value'
+                    ? ''
                     : parseFloat(totalCost).toFixed(2)
                 }
                 editable={false}
