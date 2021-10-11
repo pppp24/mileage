@@ -3,9 +3,23 @@ import {createReducer} from 'typesafe-actions';
 import {MileageActionTypes} from './mileage.types';
 import moment from 'moment';
 
+interface MileageEntries {
+  date: {
+    month: string;
+    year: number;
+  };
+  data: {
+    id: number;
+    miles: number;
+    gas: number;
+    price: number;
+    createdAt: number;
+  }[];
+}
+
 export interface MileageState {
   showMileageForm: boolean;
-  mileageEntries: any[];
+  mileageEntries: MileageEntries[];
 }
 
 export const initialState: MileageState = {
